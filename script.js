@@ -49,6 +49,7 @@ const displayDataOnUI = (data) => {
     })
 
     displayBarChart(arrayOfYears, arrayOfPopulation)
+    displaySecondBarChart(arrayOfYears,arrayOfPopulation)
 }
 
 //create a bar chart
@@ -82,4 +83,32 @@ const displayBarChart = (arrayOfYears, arrayOfPopulation) => {
 }
 
 
+
+
+const displaySecondBarChart=(arrayOfYears,arrayOfPopulation)=>{
+    const data = {
+        labels: arrayOfYears,
+        datasets: [{
+          label: 'Population in US',
+          data: arrayOfPopulation,
+          fill: false,
+          borderColor: 'rgb(75, 192, 192)',
+          tension: 0.1
+        }]
+      };
+
+
+      const config = {
+        type: 'line',
+        data: data,
+        options: {
+            scales: {
+                y: {
+                    min: 315000000,
+                }
+            },
+        }
+      }
+      new Chart(chart2, config)
+}
 
